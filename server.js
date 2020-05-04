@@ -2,10 +2,10 @@ const express = require("express"),
    cors = require("cors"),
    bodyParser = require("body-parser"),
    cookieParser = require("cookie-parser"),
-   session = require("express-session"),
    app = express(),
    port = process.env.PORT || 5009,
    pj = require("./config/config.json"),
+   session = require("express-session"),
    path = require("path");
 
 process.env.SECRET_KEY = "secret2025xyz";
