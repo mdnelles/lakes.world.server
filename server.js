@@ -1,6 +1,7 @@
 const express = require("express"),
+bodyParser = require("body-parser"),
    cors = require("cors"),
-   bodyParser = require("body-parser"),
+   morgan = require("morgan"),
    cookieParser = require("cookie-parser"),
    app = express(),
    port = process.env.PORT || 5009,
