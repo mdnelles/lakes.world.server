@@ -1,5 +1,5 @@
 const express = require("express"),
-bodyParser = require("body-parser"),
+   bodyParser = require("body-parser"),
    cors = require("cors"),
    morgan = require("morgan"),
    cookieParser = require("cookie-parser"),
@@ -37,9 +37,9 @@ app.use(
    })
 );
 
-var Import = require("./routes/browse.js")
+var Import = require("./routes/browse.js");
 
-app.use("/import", /browse);
+app.use("/import", "/browse");
 // serve static assets if in production
 if (process.env.NODE_ENV === "production") {
    // set static folder
