@@ -37,9 +37,10 @@ app.use(
    })
 );
 
-var Import = require("./routes/browse.js");
-
-app.use("/import", "/browse");
+var Import = require("./routes/ImportRoutes.js"),
+   User = require("./routes/UserRoutes");
+app.use("/import", Import);
+app.use("/user", User);
 // serve static assets if in production
 if (process.env.NODE_ENV === "production") {
    // set static folder
