@@ -6,15 +6,22 @@ const express = require("express"),
    app = express(),
    port = process.env.PORT || 5009,
    pj = require("./config/config.json"),
+   rateLimit = require("express-rate-limit"),
    session = require("express-session"),
    path = require("path");
 
 process.env.SECRET_KEY = "secret2025xyz";
 process.env.PF = "";
 
+const limiter = rateLimit({
+   windowMs: 15 * 60 * 1000, // 15 minutes
+   max: 100, // limit each IP to 100 requests per windowMs
+});
+
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(cors());
+app.use(limiter);
 
 app.use(
    session({
@@ -38,9 +45,13 @@ app.use(
 );
 
 var Import = require("./routes/ImportRoutes.js"),
+   Captcha = require("./routes/CaptchaRoutes"),
    User = require("./routes/UserRoutes");
+
 app.use("/import", Import);
 app.use("/user", User);
+app.use("/captcha", Captcha);
+
 // serve static assets if in production
 if (process.env.NODE_ENV === "production") {
    // set static folder
