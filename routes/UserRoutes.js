@@ -28,7 +28,7 @@ users.post("/login", (req, res) => {
          expiresIn: 18000,
       });
       console.log("token issued: " + token);
-      res.json({ token: token });
+      res.send({ token, tokenSuccess: true });
    } else {
       Logfn.log2db(
          500,
@@ -43,7 +43,10 @@ users.post("/login", (req, res) => {
       console.log({
          authFail: "email/password combination not found",
       });
-      res.json({ authFail: "email/password combination not found" });
+      res.json({
+         tokenSuccess: false,
+         authFail: "email/password combination not found",
+      });
    }
 });
 
