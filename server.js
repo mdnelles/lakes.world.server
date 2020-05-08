@@ -1,7 +1,6 @@
 const express = require("express"),
    bodyParser = require("body-parser"),
    cors = require("cors"),
-   morgan = require("morgan"),
    cookieParser = require("cookie-parser"),
    app = express(),
    port = process.env.PORT || 5009,
@@ -46,9 +45,11 @@ app.use(
 
 var Import = require("./routes/ImportRoutes.js"),
    Captcha = require("./routes/CaptchaRoutes"),
+   Lakes = require("./routes/LakesRoutes"),
    User = require("./routes/UserRoutes");
 
 app.use("/import", Import);
+app.use("/lakes", Lakes);
 app.use("/user", User);
 app.use("/captcha", Captcha);
 
