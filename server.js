@@ -12,9 +12,10 @@ const express = require("express"),
 process.env.SECRET_KEY = "secret2025xyz";
 process.env.PF = "";
 
+//3 requested per second
 const limiter = rateLimit({
-   windowMs: 15 * 60 * 1000, // 15 minutes
-   max: 100, // limit each IP to 100 requests per windowMs
+   windowMs: 1000, // 15 * 60 * 1000, // 15 minutes
+   max: 3, // limit each IP to 100 requests per windowMs
 });
 
 app.use(bodyParser.json());

@@ -14,7 +14,7 @@ module.exports = db.sequelize.define(
          defaultValue: "na",
          allowNull: true,
       },
-      lNnameAlia: {
+      lNameAlias: {
          type: Sequelize.STRING,
          allowNull: true,
       },
