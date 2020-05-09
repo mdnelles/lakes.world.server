@@ -15,7 +15,7 @@ process.env.PF = "";
 //3 requested per second
 const limiter = rateLimit({
    windowMs: 1000, // 15 * 60 * 1000, // 15 minutes
-   max: 3, // limit each IP to 100 requests per windowMs
+   max: 5, // limit each IP to 100 requests per windowMs
 });
 
 app.use(bodyParser.json());
