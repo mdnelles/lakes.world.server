@@ -47,11 +47,13 @@ app.use(
 var Import = require("./routes/ImportRoutes.js"),
    Captcha = require("./routes/CaptchaRoutes"),
    Lakes = require("./routes/LakesRoutes"),
+   Code = require("./routes/CodeRoutes"),
    User = require("./routes/UserRoutes");
 
 app.use("/import", Import);
 app.use("/lakes", Lakes);
 app.use("/user", User);
+app.use("/code", Code);
 app.use("/captcha", Captcha);
 
 // serve static assets if in production
